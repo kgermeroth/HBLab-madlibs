@@ -1,0 +1,9 @@
+.madlibs {
+    font-family: monospace;
+}
+.word {
+    border-bottom: 1px black solid;
+    color: blue;
+    font-family: 'Butterfly Kids', cursive;
+    font-size: 24px;
+}
