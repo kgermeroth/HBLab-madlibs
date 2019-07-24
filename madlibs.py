@@ -14,6 +14,8 @@ AWESOMENESS = [
     'smashing', 'lovely',
 ]
 
+madlib_list = ['madlib.html', 'madlib1.html', 'madlib2.html']
+
 
 @app.route('/')
 def start_here():
@@ -55,12 +57,17 @@ def show_madlib_form():
 def show_madlib():
     """Taking user input and populating madlib"""
 
-    person = request.args.get("person")
+    person = request.args.get("person").title()
     color = request.args.get("color")
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
 
-    return render_template("madlib.html", person=person, color=color, noun=noun,
+    madlib_version = choice(madlib_list)
+
+    if madlib_version == 'madlib2.html':
+        color = color.title()
+
+    return render_template(madlib_version, person=person, color=color, noun=noun,
         adjective=adjective)
 
 if __name__ == '__main__':
