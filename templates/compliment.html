@@ -4,7 +4,13 @@
   <title>A Compliment</title>
 </head>
 <body>
-    Hi {{ person }}! I think you're {{ compliment }}!<br><br>
+    Hi {{ person }}! I think you're: <br>
+    <ul>
+        {% for compliment in compliments %}
+            <li>{{compliment}}</li>
+        {% endfor %}
+    </ul><br>
+
     Would you like to play a game?
     <form action="/game">
         <input type="radio" name="choice" value="yes">YES PLEASE!
