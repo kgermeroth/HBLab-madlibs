@@ -7,7 +7,7 @@
         body {
             font-family: monospace;
         }
-        span {
+        .word {
             border-bottom: 1px black solid;
             color: blue;
             font-family: 'Butterfly Kids', cursive;
@@ -17,8 +17,7 @@
 </head>
 <body>
     <h1>Here is your madlib!</h1>
-    There once was a <span>{{ color }}</span> <span>{{ noun }}</span> sitting in the Hackbright Lab.<br>
-    When <span>{{ person }}</span> went to pick it up, it burst into flames in a totally
-    <span>{{ adjective }}</span> way.
+    There once was a <span class="word">{{ color }}</span> <span class="word">{{ noun }}</span> sitting in the Hackbright Lab.<br>
+    When <span class="word">{{ person }}</span> went to pick it up, it burst into flames in a totally <span class="word">{{ adjective }}</span> way.
 </body>
 </html>
