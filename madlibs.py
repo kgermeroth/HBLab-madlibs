@@ -58,16 +58,23 @@ def show_madlib():
     """Taking user input and populating madlib"""
 
     person = request.args.get("person").title()
-    color = request.args.get("color")
+    colors = request.args.getlist("colors")
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
 
     madlib_version = choice(madlib_list)
 
-    if madlib_version == 'madlib2.html':
-        color = color.title()
+    last_color = colors.pop()
 
-    return render_template(madlib_version, person=person, color=color, noun=noun,
+    if len(colors) == 0:
+        color_str = last_color
+    elif len(colors) == 1:
+        color_str = colors[0] + " and " + last_color
+    else:
+        color_str = ", ".join(colors)
+        color_str += f", and {last_color}"
+
+    return render_template(madlib_version, person=person, color=color_str, noun=noun,
         adjective=adjective)
 
 if __name__ == '__main__':
